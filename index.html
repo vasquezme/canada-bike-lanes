@@ -38,7 +38,7 @@ L.tileLayer(
 attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 }).addTo(map);
 
-fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/main/bike-lanes-network/toronto-cyclenetwork.json?token=GHSAT0AAAAAAC5RKZ3S7NZXSBVTSJUPFUJGZ7Z7EEQ')
+fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/main/bike-lanes-network/toronto-cyclenetwork.json')
   .then(response => response.json()) // Load the JSON
   .then(data => {
     L.geoJSON(data, {
