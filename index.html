@@ -39,17 +39,18 @@ attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, 
 }).addTo(map);
 
 fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/main/bike-lanes-network/toronto-cyclenetwork.json')
-  .then(response => response.json()) // Load the JSON
+  .then(response => response.json()) // Parse JSON
   .then(data => {
     L.geoJSON(data, {
       style: function(feature) {
         return { color: 'blue', weight: 5 };
+      },
+      onEachFeature: function(feature, layer) {
+        layer.bindPopup("Street: " + feature.properties.STREET_NAME);
       }
     }).addTo(map);
   })
   .catch(error => console.error('Error loading GeoJSON:', error));
-
-  
 
 
 </script>
