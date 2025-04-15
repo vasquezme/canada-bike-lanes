@@ -159,7 +159,7 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
     var iconUrl = "https:" + data.current.condition.icon; // Weather icon
     
     L.marker([43.64, -79.38], {
-      icon: L.icon({ iconUrl, iconSize: [75, 75] })
+      icon: L.icon({ iconUrl, iconSize: [100, 100] })
     }).addTo(map)
     .bindPopup(`Toronto Weather: ${desc}, ${temp}°C`);
   })
