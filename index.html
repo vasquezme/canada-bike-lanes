@@ -150,7 +150,7 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
   })
   .catch(error => console.error('Error loading GeoJSON:', error));
 
-  fetch('http://api.weatherapi.com/v1/current.json?key=&q=Toronto&aqi=no')
+  fetch('http://api.weatherapi.com/v1/forecast.json?key=83ac127a35ea45fb861221643251504&q=Toronto&days=1&aqi=no&alerts=no')
   .then(response => response.json())
   .then(data => {
     console.log(data); // Check API response
@@ -162,11 +162,6 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
       .bindPopup(`Toronto Weather: ${desc}, ${temp.toFixed(1)}°C`);
   })
   .catch(error => console.error('Error fetching weather data:', error));
-
-var iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-L.marker([43.64, -79.38], {
-  icon: L.icon({ iconUrl, iconSize: [50, 50] })
-}).addTo(map);
   
   
 </script>
