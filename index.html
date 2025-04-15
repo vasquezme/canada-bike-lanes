@@ -154,12 +154,12 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
   .then(response => response.json())
   .then(data => {
     console.log(data); // Check API response
-    var temp = data.current.temp_c; //temperature in Celsius
+    var temp = data.current.temp_c; // Temperature in Celsius
     var desc = data.current.condition.text; // Description of weather
     var iconUrl = "https:" + data.current.condition.icon; // Weather icon
     
     L.marker([43.64, -79.38], {
-      icon: L.icon({ iconUrl, iconSize: [50, 50] })
+      icon: L.icon({ iconUrl, iconSize: [75, 75] })
     }).addTo(map)
     .bindPopup(`Toronto Weather: ${desc}, ${temp}°C`);
   })
