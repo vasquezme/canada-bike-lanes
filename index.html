@@ -150,7 +150,7 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
   })
   .catch(error => console.error('Error loading GeoJSON:', error));
 
-  fetch('https://api.openweathermap.org/data/2.5/weather?lat=43.64&lon=-79.38&appid=58526aa7768dffbc6664bb192605673f')
+  fetch('http://api.weatherapi.com/v1/current.json?key=&q=Toronto&aqi=no')
   .then(response => response.json())
   .then(data => {
     console.log(data); // Check API response
