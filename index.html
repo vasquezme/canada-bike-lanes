@@ -128,7 +128,7 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
     L.geoJSON(data, {
       style: function(feature) {
         return { color: 'blue', weight: 5 };
-      },
+      }
     }).addTo(map);
   })
   .catch(error => console.error('Error loading GeoJSON:', error));
