@@ -122,7 +122,7 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
   })
   .catch(error => console.error('Error loading GeoJSON:', error));
 
-  fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/main/bike-lanes-network/montreal-cyclenetwork.json')
+  fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/main/bike-lanes-network/montreal-cyclenetwork.json')
   .then(response => response.json()) // Parse JSON
   .then(data => {
     L.geoJSON(data, {
