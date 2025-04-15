@@ -179,6 +179,21 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
     .bindPopup(`Barrie Weather: ${desc}, ${temp}°C`);
   })
   .catch(error => console.error('Error fetching weather data:', error));
+
+  fetch('https://api.weatherapi.com/v1/forecast.json?key=83ac127a35ea45fb861221643251504&q=Ottawa&days=1&aqi=no&alerts=no')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // Check API response
+    var temp = data.current.temp_c; // Temperature in Celsius
+    var desc = data.current.condition.text; // Description of weather
+    var iconUrl = "https:" + data.current.condition.icon; // Weather icon
+    
+    L.marker([45.41, -75.71], { // 45.41332792885776, -75.71140008000337
+      icon: L.icon({ iconUrl, iconSize: [100, 100] })
+    }).addTo(map)
+    .bindPopup(`Ottawa Weather: ${desc}, ${temp}°C`);
+  })
+  .catch(error => console.error('Error fetching weather data:', error));
   
 </script>
 </body>
