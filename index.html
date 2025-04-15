@@ -194,6 +194,37 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
     .bindPopup(`Ottawa Weather: ${desc}, ${temp}°C`);
   })
   .catch(error => console.error('Error fetching weather data:', error));
+
+  fetch('https://api.weatherapi.com/v1/forecast.json?key=83ac127a35ea45fb861221643251504&q=Montreal&days=1&aqi=no&alerts=no')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // Check API response
+    var temp = data.current.temp_c; // Temperature in Celsius
+    var desc = data.current.condition.text; // Description of weather
+    var iconUrl = "https:" + data.current.condition.icon; // Weather icon
+    
+    L.marker([45.50, -73.65], { // 45.508067706325434, -73.65730186543742
+      icon: L.icon({ iconUrl, iconSize: [100, 100] })
+    }).addTo(map)
+    .bindPopup(`Montreal Weather: ${desc}, ${temp}°C`);
+  })
+  .catch(error => console.error('Error fetching weather data:', error));
+
+  fetch('https://api.weatherapi.com/v1/forecast.json?key=83ac127a35ea45fb861221643251504&q=Halifax&days=1&aqi=no&alerts=no')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // Check API response
+    var temp = data.current.temp_c; // Temperature in Celsius
+    var desc = data.current.condition.text; // Description of weather
+    var iconUrl = "https:" + data.current.condition.icon; // Weather icon
+    
+    L.marker([44.65, -63.60], { // 44.65354030982758, -63.60660294597673
+      icon: L.icon({ iconUrl, iconSize: [100, 100] })
+    }).addTo(map)
+    .bindPopup(`Halifax Weather: ${desc}, ${temp}°C`);
+  })
+  .catch(error => console.error('Error fetching weather data:', error));
+  
   
 </script>
 </body>
