@@ -221,7 +221,52 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
     .bindPopup(`Halifax Weather: ${desc}, ${temp}°C`);
   })
   .catch(error => console.error('Error fetching weather data:', error));
+
+  fetch('https://api.weatherapi.com/v1/forecast.json?key=83ac127a35ea45fb861221643251504&q=Edmonton&days=1&aqi=no&alerts=no')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // Check API response
+    var temp = data.current.temp_c; // Temperature in Celsius
+    var desc = data.current.condition.text; // Description of weather
+    var iconUrl = "https:" + data.current.condition.icon; // Weather icon
+    
+    L.marker([53.53, -113.50], { // 53.53700964973494, -113.50326527442228
+      icon: L.icon({ iconUrl, iconSize: [100, 100] })
+    }).addTo(map)
+    .bindPopup(`Halifax Weather: ${desc}, ${temp}°C`);
+  })
+  .catch(error => console.error('Error fetching weather data:', error));
   
+  fetch('https://api.weatherapi.com/v1/forecast.json?key=83ac127a35ea45fb861221643251504&q=Calgary&days=1&aqi=no&alerts=no')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // Check API response
+    var temp = data.current.temp_c; // Temperature in Celsius
+    var desc = data.current.condition.text; // Description of weather
+    var iconUrl = "https:" + data.current.condition.icon; // Weather icon
+    
+    L.marker([51.05, -114.06], { // 51.05710121338244, -114.06639970031554
+      icon: L.icon({ iconUrl, iconSize: [100, 100] })
+    }).addTo(map)
+    .bindPopup(`Halifax Weather: ${desc}, ${temp}°C`);
+  })
+  .catch(error => console.error('Error fetching weather data:', error));
+
+  fetch('https://api.weatherapi.com/v1/forecast.json?key=83ac127a35ea45fb861221643251504&q=Vancouver&days=1&aqi=no&alerts=no')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // Check API response
+    var temp = data.current.temp_c; // Temperature in Celsius
+    var desc = data.current.condition.text; // Description of weather
+    var iconUrl = "https:" + data.current.condition.icon; // Weather icon
+    
+    L.marker([49.26, -123.12], { // 49.26526390119565, -123.12974636763072
+      icon: L.icon({ iconUrl, iconSize: [100, 100] })
+    }).addTo(map)
+    .bindPopup(`Halifax Weather: ${desc}, ${temp}°C`);
+  })
+  .catch(error => console.error('Error fetching weather data:', error));
+
   
 </script>
 </body>
