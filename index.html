@@ -270,6 +270,31 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
   })
   .catch(error => console.error('Error fetching weather data:', error));
 
+// Fetch Toronto Cycle Network
+var torontoLayer = L.geoJSON(null, {
+  style: { color: 'blue', weight: 5 }
+});
+fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/main/bike-lanes-network/toronto-cyclenetwork.json')
+  .then(response => response.json())
+  .then(data => torontoLayer.addData(data))
+  .catch(error => console.error('Error loading Toronto data:', error));
+
+// Fetch Montreal Cycle Network
+var montrealLayer = L.geoJSON(null, {
+  style: { color: 'red', weight: 5 }
+});
+fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/main/bike-lanes-network/montreal-cyclenetwork.json')
+  .then(response => response.json())
+  .then(data => montrealLayer.addData(data))
+  .catch(error => console.error('Error loading Montreal data:', error));
+
+// Add layer controls to toggle networks
+var overlayMaps = {
+  "Toronto Bike Lanes": torontoLayer,
+  "Montreal Bike Lanes": montrealLayer
+};
+
+L.control.layers(null, overlayMaps).addTo(map);
   
 </script>
 </body>
