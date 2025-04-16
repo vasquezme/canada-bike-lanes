@@ -233,7 +233,7 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
     L.marker([53.53, -113.50], { // 53.53700964973494, -113.50326527442228
       icon: L.icon({ iconUrl, iconSize: [100, 100] })
     }).addTo(map)
-    .bindPopup(`Halifax Weather: ${desc}, ${temp}°C`);
+    .bindPopup(`Edmonton Weather: ${desc}, ${temp}°C`);
   })
   .catch(error => console.error('Error fetching weather data:', error));
   
@@ -248,7 +248,7 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
     L.marker([51.05, -114.06], { // 51.05710121338244, -114.06639970031554
       icon: L.icon({ iconUrl, iconSize: [100, 100] })
     }).addTo(map)
-    .bindPopup(`Halifax Weather: ${desc}, ${temp}°C`);
+    .bindPopup(`Calgary Weather: ${desc}, ${temp}°C`);
   })
   .catch(error => console.error('Error fetching weather data:', error));
 
@@ -263,7 +263,7 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
     L.marker([49.26, -123.12], { // 49.26526390119565, -123.12974636763072
       icon: L.icon({ iconUrl, iconSize: [100, 100] })
     }).addTo(map)
-    .bindPopup(`Halifax Weather: ${desc}, ${temp}°C`);
+    .bindPopup(`Vancouver Weather: ${desc}, ${temp}°C`);
   })
   .catch(error => console.error('Error fetching weather data:', error));
 
