@@ -38,22 +38,7 @@ L.tileLayer(
 attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 }).addTo(map);
   
-/* Set up highlight feature with mouse over */
-L.geoJSON(data, {
-  style: function(feature) {
-    return { color: 'blue', weight: 5 };
-  },
-  onEachFeature: function(feature, layer) {
-    layer.on('mouseover', function() {
-      layer.setStyle({ color: 'red', weight: 6 }); // Highlight on hover
-    });
-    layer.on('mouseout', function() {
-      layer.setStyle({ color: 'blue', weight: 5 }); // Reset style
-    });
-  }
-}).addTo(map);
 
-  
 /* Fetch cyclenetworks */
 fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/main/bike-lanes-network/toronto-cyclenetwork.json')
   .then(response => response.json()) // Parse JSON
