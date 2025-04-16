@@ -37,7 +37,24 @@ L.tileLayer(
 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { // https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
 attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 }).addTo(map);
+  
+/* Set up highlight feature with mouse over */
+L.geoJSON(data, {
+  style: function(feature) {
+    return { color: 'blue', weight: 5 };
+  },
+  onEachFeature: function(feature, layer) {
+    layer.on('mouseover', function() {
+      layer.setStyle({ color: 'red', weight: 6 }); // Highlight on hover
+    });
+    layer.on('mouseout', function() {
+      layer.setStyle({ color: 'blue', weight: 5 }); // Reset style
+    });
+  }
+}).addTo(map);
 
+  
+/* Fetch cyclenetworks */
 fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/main/bike-lanes-network/toronto-cyclenetwork.json')
   .then(response => response.json()) // Parse JSON
   .then(data => {
@@ -147,6 +164,7 @@ fetch('https://raw.githubusercontent.com/vasquezme/canada-bike-lanes/refs/heads/
   })
   .catch(error => console.error('Error loading GeoJSON:', error));
 
+  /* Fetch weather information and icon from api */
   fetch('https://api.weatherapi.com/v1/forecast.json?key=83ac127a35ea45fb861221643251504&q=Toronto&days=1&aqi=no&alerts=no')
   .then(response => response.json())
   .then(data => {
